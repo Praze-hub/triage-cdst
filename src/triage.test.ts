@@ -252,6 +252,7 @@ describe('evaluateTriageForCdst', () => {
     describe('disclaimer', () => {
         it('should always include the disclaimer on success', () => {
             const result = evaluateTriageForCdst(validInput);
+            expect(result.ok).toBe(true);
             if(result.ok){
                 expect(result.disclaimer).toBe('Clinical decision support only. Not a diagnosis.');
             }
