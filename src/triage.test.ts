@@ -1,5 +1,6 @@
 import { evaluateTriageForCdst } from "./triage";
 
+// Input Examples
 const validInput = {
   encounterId: 'enc_001',
   patientId: 'pat_123',
@@ -36,6 +37,7 @@ const normalInput = {
 
 describe('evaluateTriageForCdst', () => {
 
+    // Validation tests
     describe('validation', ()=> {
         it("should return ok:false for null input", () => {
         const result = evaluateTriageForCdst(null)

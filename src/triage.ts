@@ -1,3 +1,5 @@
+// Interfaces
+
 export interface Vitals{
     temperatureC: number;
     systolicBp: number;
@@ -35,7 +37,7 @@ export type CdstResult = | {ok: true; data: NormalizedTriage; flags: CdstFlag[];
 
 
 
-
+// Helper functions
 function isNonEmptyString(value: unknown): value is string {
         return typeof value === 'string' && value.trim().length > 0;
 }
@@ -104,7 +106,7 @@ function validateInput(input: unknown):
 
         for(const rule of vitalRules){
             const val = vitals[rule.key];
-            if(typeof val !== 'number' || val < rule.min || val > rule.max){
+            if(typeof val !== 'number' || !isInRange(val, rule.min, rule.max)){
                 return{
                     valid: false,
                     errorCode: 'VITAL_OUT_OF_RANGE',
@@ -196,6 +198,7 @@ function generateFlags(triage: NormalizedTriage): CdstFlag[] {
 }
 
 
+// Main function Implementation
 export function evaluateTriageForCdst(input: unknown): CdstResult{
     const validation = validateInput(input);
 
