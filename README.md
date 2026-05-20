@@ -1,4 +1,4 @@
-# awadoc-triage-cdst
+# triage-cdst
 
 A TypeScript module that validates hospital triage payloads and generates
 clinical decision support (CDST) flags for emergency care scenarios.
