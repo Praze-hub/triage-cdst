@@ -85,7 +85,7 @@ function validateInput(input: unknown):
             if (!isNonEmptyString(raw[field])){
                 return {
                     valid: false,
-                    errorCode: "MISSING_FIIELD",
+                    errorCode: "MISSING_FIELD",
                     message: `${field} is required and must be a non-empty string`
                 };
             }
